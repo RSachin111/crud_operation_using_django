@@ -110,15 +110,16 @@ def UPDATE(request,id):
     
 #  delete a employeed details    
 # def DELETE(request,id):
-#     emp=Employees.objects.filter(id=id).delete()   #you need to use id for delete particular data otherwise it will delte all the data 
+#     emp=Employees.objects.filter(id=id)
+#     emp.delete()   #you need to use id for delete particular data otherwise it will delte all the data 
 
 #     context={
 #         'emp':emp,
 #     }
 
-#     return redirect(request,'index.html',context)
+#     return redirect(request,'home')
 
 def DELETE(request,id):
     emp = Employees.objects.get(id=id)
     emp.delete()
-    return redirect('index')
+    return redirect('home')
